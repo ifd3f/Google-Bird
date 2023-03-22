@@ -1,6 +1,7 @@
 #!/usr/bin/env python3 -u
 
 import asyncio
+from base64 import b64decode
 import os
 import sys
 
@@ -90,24 +91,23 @@ def mk_pleroma() -> Pleroma:
 
 
 def pick_generator():
+    if randint(1, 1000) == 1:
+        return lambda: b64decode(b64decode(b64decode(b'WlZjNU1VbElUbTlpTTFaeldrTkNNV015VldkWk1rWnpXVEowYkdWUlBUMD0='))).decode('utf8')
+
     if randint(1, 15) == 1:
         return choice([
-            lambda: "ня" * randint(1, 4),
-            lambda: "ニャン" * randint(1, 4),
-            lambda: "喵" * randint(1, 4),
-            lambda: "ña" * randint(1, 4),
-            lambda: "ڽا" * randint(1, 4)
+            lambda: "pío" * randint(1, 4),
+            lambda: "ちゅん" * randint(1, 4),
+            lambda: "叽" * randint(1, 7),
         ])
 
     return choice([
-        lambda: 'meow' * randint(1, 3),
-        lambda: 'mew' * randint(1, 3),
-        lambda: 'miau' * randint(1, 3),
-        lambda: 'miaou' * randint(1, 3),
-        lambda: 'nya' * randint(1, 3),
-        lambda: 'm' + 'r' * randint(1, 6) * 'p',
-        lambda: 'pur' + 'r' * randint(1, 6),
-        lambda: 'nya' * randint(1, 3) + 'ny' + 'a' * randint(1, 10),
+        lambda: 'ch' + 'e' * randint(2, 3),
+        lambda: 'ch' + 'e' * randint(2, 6) + 'p',
+        lambda: 'chirp' * randint(1, 3),
+        lambda: 'squ' + 'a' * randint(1, 6) + 'w' + 'k',
+        lambda: 'squawk' * randint(1, 3),
+        lambda: 'tweet' * randint(1, 3),
     ])
 
 
